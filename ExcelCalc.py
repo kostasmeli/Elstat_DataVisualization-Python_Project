@@ -1,9 +1,10 @@
 import sqlite3
 from sqlite3 import Error
 from typing import List, Any
-
 import xlrd
 import matplotlib.pyplot as plt
+import csv
+
 year = ['2011','2012','2013','2014']
 dates = ['ianouario','fevrouario','martio','aprilio','maio','iounio','ioulio','augousto','septemvrio','oktovrio','noemvrio','dekemvrio']
 TouristsPerYear = []
@@ -161,3 +162,11 @@ for i in range(12):
 for z in range(0,12,3):
     trimina[3].append(sum(monthvalues3[z:z+3]))
 print(trimina)
+
+#import data to csv files
+with open("TouristPerYear.csv",mode="w") as TouristsPerYearfile:
+    TouristsPerYear_write=csv.writer(TouristsPerYearfile,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
+    TouristsPerYear_write.writerow(["years",year])
+    TouristsPerYear_write.writerow(["TouristsPerYear",TouristsPerYear])
+
+with open()

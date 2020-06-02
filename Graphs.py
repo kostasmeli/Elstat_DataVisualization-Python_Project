@@ -79,9 +79,13 @@ width=0.20
 valuesfory=[0,2000000,4000000,6000000,8000000,10000000,12000000,14000000,16000000]
 fig,ax=plt.subplots()
 bar_2011=ax.bar(index,trimina[0],width,label="2011")
+autolabel(bar_2011)
 bar_2012=ax.bar(index+width,trimina[1],width,label="2012")
+autolabel(bar_2012)
 bar_2013=ax.bar(index+2*width,trimina[2],width,label="2013")
+autolabel(bar_2013)
 bar_2014=ax.bar(index+3*width,trimina[3],width,label="2014")
+autolabel(bar_2014)
 ax.set_xticks(index)
 ax.set_xticklabels(["1o trimino","2o trimino","3o trimino","4o trimino"])
 ax.set_yticks(valuesfory)

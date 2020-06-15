@@ -120,40 +120,28 @@ for r in range(4):
 
 #afikseis touriston sthn ellada ana trimino
 trimina = [ [],[],[],[] ]
-#gia to 2011
-excelopen0 = xlrd.open_workbook("afikseis_kai_mesa_metaforas0.xls")
-monthvalues0 = []
-for i in range(12):
-    sheet = excelopen0.sheet_by_index(i)
-    monthvalues0.append(int(sheet.cell_value(65,6)))
-for z in range(0,12,3):
-    trimina[0].append(sum(monthvalues0[z:z+3]))
-#gia to 2012
-excelopen1 = xlrd.open_workbook("afikseis_kai_mesa_metaforas1.xls")
-monthvalues1 = []
-for i in range(12):
-    sheet = excelopen1.sheet_by_index(i)
-    monthvalues1.append((int(sheet.cell_value(65,6))))
-for z in range(0,12,3):
-    trimina[1].append(sum(monthvalues1[z:z+3]))
-#gia to 2013
-excelopen2 = xlrd.open_workbook("afikseis_kai_mesa_metaforas2.xls")
-monthvalues2=[]
-for i in range(12):
-    sheet = excelopen2.sheet_by_index(i)
-    if i== 0 or i==1 or i==2 or i==3 or i==4 or i==5:
-        monthvalues2.append(int(sheet.cell_value(64,6)))
+def myfunction(anexcel,year):
+    if anexcel=="afikseis_kai_mesa_metaforas2.xls":
+        xlsopen=xlrd.open_workbook(anexcel)
+        temparray=[]
+        for i in range(12):
+            sheet = xlsopen.sheet_by_index(i)
+            if i == 0 or i == 1 or i == 2 or i == 3 or i == 4 or i == 5:
+                temparray.append(int(sheet.cell_value(64, 6)))
+            else:
+                temparray.append(int(sheet.cell_value(65, 6)))
+        for z in range(0, 12, 3):
+            trimina[2].append(sum(temparray[z:z + 3]))
     else:
-        monthvalues2.append(int(sheet.cell_value(65,6)))
-for z in range(0,12,3):
-    trimina[2].append(sum(monthvalues2[z:z+3]))
-#gia to 2014
-excelopen3 = xlrd.open_workbook("afikseis_kai_mesa_metaforas3.xls")
-monthvalues3=[]
-for i in range(12):
-    sheet = excelopen3.sheet_by_index(i)
-    monthvalues3.append(int(sheet.cell_value(65,6)))
-for z in range(0,12,3):
-    trimina[3].append(sum(monthvalues3[z:z+3]))
+        xlsopen=xlrd.open_workbook(anexcel)
+        temparray=[]
+        for i in range(12):
+            sheet=xlsopen.sheet_by_index(i)
+            temparray.append(int(sheet.cell_value(65,6)))
+        for z in range(0, 12, 3):
+            trimina[year].append(sum(temparray[z:z + 3]))
+myfunction("afikseis_kai_mesa_metaforas0.xls",0)
+myfunction("afikseis_kai_mesa_metaforas1.xls",1)
+myfunction("afikseis_kai_mesa_metaforas2.xls",2)
+myfunction("afikseis_kai_mesa_metaforas3.xls",3)
 print(trimina)
-

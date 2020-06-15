@@ -1,9 +1,4 @@
-import sqlite3
-from sqlite3 import Error
-from typing import List, Any
 import xlrd
-import matplotlib.pyplot as plt
-
 year = ['2011','2012','2013','2014']
 dates = ['ianouario','fevrouario','martio','aprilio','maio','iounio','ioulio','augousto','septemvrio','oktovrio','noemvrio','dekemvrio']
 TouristsPerYear = []

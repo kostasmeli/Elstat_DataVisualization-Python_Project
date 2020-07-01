@@ -1,13 +1,7 @@
 from ExcelCalc import *
 import matplotlib.pyplot as plt
 import numpy as np
-#function to plot values in the upper side of the bar
-def autolabel(rects):
-    for rect in rects:
-        height = rect.get_height()
-        ax.text(rect.get_x() + rect.get_width()/2., 1.05*height,
-                '%d' % int(height),
-                ha='center', va='bottom')
+
 #First Graph
 diaxorismosy=np.arange(0,25000000,2500000)
 label=[2011,2012,2013,2014] # what it will be shown in x axis
@@ -43,11 +37,6 @@ ax.set_xticklabels([2011,2012,2013,2014])
 ax.set_yticks(timesgiay)
 ax.set_yticklabels(["0","300k","600k","900k","1.2m","1.5m","1.8m","2.1m","2.4m","2.7m","3.5m"])
 plt.ylabel("Tourists visited Greece")
-autolabel(bar_France)
-autolabel(bar_Germany)
-autolabel(bar_Uk)
-autolabel(bar_Italy)
-autolabel(bar_Russia)
 ax.legend()
 plt.title("Top Countries Per Years")
 
@@ -66,10 +55,6 @@ ax.set_xticklabels(["aerodromikos","sidirodromikos","thallasios","odikos"])
 ax.set_yticks(valuesfory)
 ax.set_yticklabels(["0","2m","4m","6m","8m","10m","12m","14m","16m"])
 plt.ylabel("Tourists Transported")
-autolabel(bar_2011)
-autolabel(bar_2012)
-autolabel(bar_2013)
-autolabel(bar_2014)
 ax.legend()
 plt.title("Transport Values Per Years")
 
@@ -78,14 +63,10 @@ index=np.arange(4)
 width=0.20
 valuesfory=[0,2000000,4000000,6000000,8000000,10000000,12000000,14000000,16000000]
 fig,ax=plt.subplots()
-bar_2011=ax.bar(index,trimina[0],width,label="2011")
-autolabel(bar_2011)
-bar_2012=ax.bar(index+width,trimina[1],width,label="2012")
-autolabel(bar_2012)
-bar_2013=ax.bar(index+2*width,trimina[2],width,label="2013")
-autolabel(bar_2013)
-bar_2014=ax.bar(index+3*width,trimina[3],width,label="2014")
-autolabel(bar_2014)
+barv2_2011=ax.bar(index,trimina[0],width,label="2011")
+barv2_2012=ax.bar(index+width,trimina[1],width,label="2012")
+barv2_2013=ax.bar(index+2*width,trimina[2],width,label="2013")
+barv2_2014=ax.bar(index+3*width,trimina[3],width,label="2014")
 ax.set_xticks(index)
 ax.set_xticklabels(["1o trimino","2o trimino","3o trimino","4o trimino"])
 ax.set_yticks(valuesfory)

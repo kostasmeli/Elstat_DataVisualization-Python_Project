@@ -9,7 +9,7 @@ for z in range(4):
         TouristsPerYear.append(int(sheet.cell_value(134,6)))
     else :
         TouristsPerYear.append(int(sheet.cell_value(136,6)))
-
+#To TouristPerYear exei tis plhrofories gia to zhtoumeno 1
 #print("TOP 5 COUNTRIES WITH MOST VISITORS IN 2011")
 country2011=[]
 value2011=[]
@@ -94,7 +94,7 @@ value2014.append(int(sheet4.cell_value(88,6)))
 country2014.append(sheet4.cell_value(109,1))
 value2014.append(int(sheet4.cell_value(109,6)))
 
-countries = [country2011,country2012,country2013,country2014]
+countries = [country2011,country2012,country2013,country2014]    #countries kai values einai ta array pou exoun tis plhrofories gia to zhtoumeno 2
 values = [value2011,value2012,value2013,value2014]
 
 for i in range(len(countries)):
@@ -113,7 +113,7 @@ for i in range(4):
         for z in range(2,6):
             TransportArray[i].append(int(selida.cell_value(136,z)))
 
-transport = ["aeroporikos","sidirodromikos","thallasios","odikos"]
+transport = ["aeroporikos","sidirodromikos","thallasios","odikos"] # transport,TrasnportArray,year  einai ta array pou exoun tis plhrofories gia to zhtoumeno 3
 for r in range(4):
     for o in range(4):
         print(year[r],transport[o],TransportArray[r][o])
@@ -144,4 +144,4 @@ myfunction("afikseis_kai_mesa_metaforas0.xls",0)
 myfunction("afikseis_kai_mesa_metaforas1.xls",1)
 myfunction("afikseis_kai_mesa_metaforas2.xls",2)
 myfunction("afikseis_kai_mesa_metaforas3.xls",3)
-print(trimina)
+#to array trimina exei tis plhrofories gia to zhtoumeno 4
